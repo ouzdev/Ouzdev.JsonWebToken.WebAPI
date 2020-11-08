@@ -1,4 +1,4 @@
-## JSON WEB TOKEN NOTLARI
+## Asp.NET Core Web API Json Web Token
 
  * Yoken bazlı yetkilendirme aracıdır. Geleneksel cookie bazlı araçların modern halidir.
  * Birçok projede kullanılmakla beraber standart olma yolunda ilerlemektedir.
