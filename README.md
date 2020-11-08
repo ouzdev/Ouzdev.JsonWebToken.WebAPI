@@ -6,9 +6,9 @@
 
 **Bir JWT yapısı 3 kısımdan oluşmaktadır.**
 
- * HEADER 
- * PAYLOAD
- * VERIFY
+ * Header
+ * Payload
+ * Verify Signature
  ## Header
  
 Json Web Token (JWT) Header algoritma ve token tipinden oluşmaktadır. 
