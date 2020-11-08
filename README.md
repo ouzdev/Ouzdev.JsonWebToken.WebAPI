@@ -1,4 +1,4 @@
-## Asp.Net Core Web API İle Json Web Token Kullanımı
+## JSON WEB TOKEN NOTLARI
 
  * Yoken bazlı yetkilendirme aracıdır. Geleneksel cookie bazlı araçların modern halidir.
  * Birçok projede kullanılmakla beraber standart olma yolunda ilerlemektedir.
@@ -6,9 +6,9 @@
 
 **Bir JWT yapısı 3 kısımdan oluşmaktadır.**
 
- * Header
- * Payload
- * Verify Signature
+ * HEADER 
+ * PAYLOAD
+ * VERIFY
  ## Header
  
 Json Web Token (JWT) Header algoritma ve token tipinden oluşmaktadır. 
@@ -62,3 +62,27 @@ Token oluştururken hangi özelliklere sahip olacağını belirlemek için `JwtS
  - Claims : Tokenda rol bilgilerinin tutulacağı property.
  - SingInCredentials : İlgili tokenın imzasını taşır.
 
+## JWT Asp .Net Core Web API  Projesini Oluşturma
+Örnek bir proje oluştururken "Configure Https" özelliğini devre dışı bırakıyoruz. Sonrasında geleneksel Web Api projesini oluşturuyoruz.
+
+JWT doğrulama imzası kısmında 256 bit bir anahtara ihtiyacımız olacağı için .net Core tarafında bu anahtarı bir nesne yardımıyla oluşturacağız. Bu nesne bu anahtarı simetrik olarak oluşturacak.
+
+**Startup.cs dosyasında gerekli konfigürasyonların yapılması** 
+
+ConfigureService içerisine JWT servisi eklemek için `services.AddAuthentication()` kodunu ekliyorum. Sonrasında bu giriş işlemini gerçekleştirebilmek için bir kaç işlem daha yapmamız gerekiyor. 
+
+Nuget Package Console kullanarak ilgili `Microsoft.AspNetCore.Authentication.JwtBearer`  paketini projeme ekliyorum. Gerekli paketi projeme kurduktan sonra işlemlere devam ediyorum.
+
+    services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
+            {
+                opt.RequireHttpsMetadata = false;
+    });
+Yukarıda ki kod bloğunda `service.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)` içerisine bir authentication şeması belirtmemiz gerekiyor. 
+
+Şema nedir kısaca özetleyecek olursak bir giriş sisteminiz olduğunu ve öğrenci ve öğretmen olarak 2 farklı giriş yöntemi kullandığınızı varsayalım. Bu tarz durumlarda birden fazla authentication şeması kullanabiliriz. Biz bu projede sadece bir tane authentication yöntemi kullanacağımız için bir tane şema kullanacağız.
+ 
+ Sonrasında `AddJwtBearer()` içinde bir delege kullanarak özelleştirmeleri yapıyoruz.
+ 
+**Peki bu özelleştireceğimiz özellikler nelelerdir ?**
+
+ - 
