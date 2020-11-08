@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Text;
 
 namespace Ouzdev.JwtWebToken.WebAPI
@@ -30,12 +31,17 @@ namespace Ouzdev.JwtWebToken.WebAPI
                 // Tokenın özelliklerini belirleme. 
                 opt.TokenValidationParameters = new TokenValidationParameters()
                 {
+
+
                     //Tokenı kim oluşturdu ?
                     ValidIssuer = "http://localhost",
+
                     //Tokenı kim kullanacak ?
                     ValidAudience = "http://localhost",
+
                     //Token hangi key değerine göre çözülecek ?
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("ouzouzouz1")),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("OguzOguzOguzOguz123")),
+
                     //Token yukardaki keye göre çözülebilsinmi ?
                     ValidateIssuerSigningKey = true,
 
@@ -43,8 +49,11 @@ namespace Ouzdev.JwtWebToken.WebAPI
                     //Eğer tokenın süresi dolmuşsa sen o tokenı invalid yani geçersiz olarak kabul et. 
                     ValidateLifetime = true,
 
-                };
+                    //ClockSkew => Serverlar arasındaki zaman farklılıklarını göz önünde bulundurarak süre arttırımı ve azaltımı yapmak için kullanılır.
+                    //Biz kullanmayacağımız için "TimeSpan.Zero" tanımlamasını yapıyoruz.
+                    ClockSkew = TimeSpan.Zero
 
+                };
             });
         }
 
@@ -58,6 +67,10 @@ namespace Ouzdev.JwtWebToken.WebAPI
 
             app.UseRouting();
 
+            //Oturum Kontrolu
+            app.UseAuthentication();
+
+            //Yetki Kontrolu
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
