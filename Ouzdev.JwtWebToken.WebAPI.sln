@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ouzdev.JwtWebToken.WebAPI", "Ouzdev.JwtWebToken.WebAPI\Ouzdev.JwtWebToken.WebAPI.csproj", "{EC78D6F9-E7D4-4313-A3F0-A07D81BBAD3C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC78D6F9-E7D4-4313-A3F0-A07D81BBAD3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC78D6F9-E7D4-4313-A3F0-A07D81BBAD3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC78D6F9-E7D4-4313-A3F0-A07D81BBAD3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC78D6F9-E7D4-4313-A3F0-A07D81BBAD3C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1FD93CB4-9E6C-4F95-9E0E-9903C3EC71AD}
+	EndGlobalSection
+EndGlobal
