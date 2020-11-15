@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace Ouzdev.JwtWebToken.WebAPI.Controllers
 {
@@ -41,6 +42,8 @@ namespace Ouzdev.JwtWebToken.WebAPI.Controllers
             //Login metodu çalıştıktan sonra Access metodunu çalıştırdığımızda "Authorize" yani yetki kontrolu yapılacaktır. 
             //Eğer geçerli bir token tanımı var ise bu metod başarılı bir şekilde çalışcaktır. 
             //Eğer bu halde uygulamayı çalıştırırsak 401 hatası alırız. Nedeni startup.cs de sadece Authorization tanımlamsının yanında Authentication tanımlaması yapmamış olmamız.
+            var name = User.Identity.Name;
+            var sehir = User.Claims.Where(x => x.Type == "Şehir").FirstOrDefault();
             return Ok("Token Doğru Ve Başarılı bir şekilde Admin Sayfasına erişim sağladınız.");
         }
     }
