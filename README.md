@@ -60,7 +60,7 @@ Token oluştururken hangi özelliklere sahip olacağını belirlemek için `JwtS
  - Expires : Bu token ne kadar süre geçerli olacağının bilgisini tutar.
  - notBefore : Hangi süreden önce geçerli olmayacağının bilgisini tutar.
  - Claims : Tokenda rol bilgilerinin tutulacağı property.
- - SingInCredentials : İlgili tokenın imzasını taşır.
+ - SingInCredentials : İlgili tokenın şifrelenmiş simetrik anahtar bilgisini tutar.
 
 ## JWT Asp .Net Core Web API  Projesini Oluşturma
 Örnek bir proje oluştururken "Configure Https" özelliğini devre dışı bırakıyoruz. Sonrasında geleneksel Web Api projesini oluşturuyoruz.
